@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> Multi-class News Classification</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="images/hero-bg.png" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Multi-Class News Classification
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"> About</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="why.html">Description</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="team.html">Team</a>
+              </li>
+              
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Multi-Class <br>
+                      News Classification
+                    </h1>
+                    <p>
+                      
+                    </p>
+                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="images/slide-img.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Multi-Class <br>
+                      News Classification
+                    </h1>
+                    <p>
+                      </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="images/slide-img.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+<!--Service section-->
+<section class="news-classifier-section">
+  <div class="news-classifier-container">
+    <div class="heading_container heading_center">
+      <h2>
+        Classify <span>App</span>
+      </h2>
+      <p>
+        
+      </p>
+    </div>
+      <div class="news-classifier-box">
+          <h3 class="classifier-title">News Article</h3>
+          <form id="news-form">
+              <div class="form-group">
+                  <textarea id="news-article" class="classifier-textarea" placeholder="" required></textarea>
+                  <button type="submit" class="classifier-btn">Classify <i data-feather="search"></i></button>
+              </div>
+          </form>
+          <div class="classified-output">
+              <h3 class="classifier-title">Classified Output</h3>
+              <div id="result" class="classifier-result">
+                  <!-- Classified output will be displayed here -->
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<style>
+/* Spacing between the form and list topics */
+#list-topics {
+  margin-top: 30px;
+    /* Heading Container Styling */
+  .heading_container {
+    margin-bottom: 20px; /* Add spacing below the heading */
+  }
+  
+  /* News Classifier Container */
+  .news-classifier-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Reduced width for compact design */
+    margin-top: 20px; /* Add spacing above the container */
+  }
+}
+</style>
+
+<style>
+/* News Classifier Section */
+.news-classifier-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh; /* Reduced height */
+  background: rgba(255, 255, 255, 0.3);
+  padding: 30px;
+}
+
+/* Transparent White Box Container */
+
+.heading_container {
+  margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+/* News Classifier Section */
+.news-classifier-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background: #fff; /* Light background color */
+  padding: 30px;
+}
+
+/* Heading Container Styling */
+.heading_container {
+  margin-bottom: 20px;
+}
+
+/* News Classifier Container */
+.news-classifier-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px; /* Increased width for better layout */
+  margin-top: 20px;
+}
+
+/* Inner Box Styling */
+.news-classifier-box {
+  position: relative;
+  background: linear-gradient(to bottom right, #000080, #00ffcc); /* Neon navy blue to sea green gradient */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Neon glow */
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  color: #fff; /* White text color */
+}
+
+/* Title Styling */
+.classifier-title {
+  font-size: 24px; /* Larger font size */
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #03e9f4; /* Neon color */
+}
+
+/* Textarea Styling */
+.classifier-textarea {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px; /* Larger font size */
+  color: #000; /* Black text color */
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #03e9f4; /* Neon border */
+  outline: none;
+  background: rgba(255, 255, 255, 0.8); /* Slightly white background */
+  transition: all 0.3s ease;
+}
+
+/* Focus Effect on Textarea */
+.classifier-textarea:focus {
+  border-color: #03e9f4;
+  outline: none;
+  box-shadow: 0 3px 8px rgba(3, 233, 244, 0.5); /* Neon glow */
+}
+
+/* Button Styling */
+.classifier-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Button Hover Effect */
+.classifier-btn:hover {
+  background: #03e9f4;
+  color: #fff;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+}
+
+/* Classified Output Box */
+.classifier-result {
+  background: rgba(255, 255, 255); /* Slightly white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Neon glow */
+  min-height: 60px; /* Increased height */
+  margin-top: 20px;
+  color: #000; /* Black text color */
+  border: 1px solid #03e9f4; /* Neon border */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px); /* Glassmorphism effect for Safari */
+}
+</style>
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2>
+          Description of the <span>App</span>
+        </h2>
+        <p>
+          
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="images/about-img.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              Multi-Class News Classification App
+            </h3>
+            <p>
+              Multi-Class News Classifier App - Description
+The Multi-Class News Classifier App is a machine learning-powered application designed to automatically categorize news articles into predefined categories. It uses Natural Language Processing (NLP) techniques to analyze the content of news articles and classify them into categories such as Politics, Technology, Sports, Business, and others.
+            </p>
+                      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Categories <span>in the App</span>
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="images/w1.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Technology
+            </h5>
+            <p>
+              Stay informed about the latest advancements in AI, gadgets, software, and emerging technologies. Get insights into industry trends, tech company updates, and innovations shaping the future.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="images/w2.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Sports
+            </h5>
+            <p>
+              Get real-time updates on matches, tournaments, player performances, and breaking sports news. Stay connected with the latest in football, cricket, basketball, and more from around the world.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="images/w3.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Business
+            </h5>
+            <p>
+              Explore in-depth market trends, stock updates, startup innovations, and global economic developments. Stay ahead with financial insights, corporate news, and expert business analysis.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="images/w4.png" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Politics
+            </h5>
+            <p>
+              Follow the latest political events, government policies, elections, and global affairs. Stay updated with insights into national and international politics, diplomatic relations, and policy changes.
+            </p>
+          </div>
+        </div>
+      </div>
+          </div>
+  </section>
+
+  <!-- end why section -->
+
+   <section class="team_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container heading_center">
+        <h2 class="">
+          Our <span> Team</span>
+        </h2>
+      </div>
+  
+      <div class="team_container">
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="images/team-1.jpg" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Charitha Reddy
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="images/team-2.jpg" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Satya Raju
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="images/team-3.jpg" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Vamshi
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="images/team-4.jpg" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Jayavardhan
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="images/team-4.jpg" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Chandrahas
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end team section -->
+
+
+  <!-- client section -->
+
+  <!--<section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center psudo_white_primary mb_45">
+        <h2>
+          What says our <span>Customers</span>
+        </h2>
+      </div>
+      <div class="carousel-wrap ">
+        <div class="owl-carousel client_owl-carousel">
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/client1.jpg" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      LusDen
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/client2.jpg" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Zen Court
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/client1.jpg" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      LusDen
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/client2.jpg" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Zen Court
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  end client section -->
+  
+
+  <!-- info section -->
+<!--
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="index.html">
+                Home
+              </a>
+              <a class="" href="about.html">
+                About
+              </a>
+              <a class="" href="service.html">
+                Services
+              </a>
+              <a class="" href="why.html">
+                Why Us
+              </a>
+              <a class="" href="team.html">
+                Team
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By CopyRights
+        <a href="https://html.design/"></a>
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+
+</html>

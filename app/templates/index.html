@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="">
+
+  <title> Multi-class News Classification</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet" />
+
+  <style>
+    /* Increase the size of the heading and align it properly */
+.detail-box h1 {
+  font-size: 1000px; /* Increased font size */
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left; /* Align text to the left */
+  width: 100%; /* Ensure it occupies full width of its column */
+  max-width: 90%; /* Prevent excessive stretching */
+}
+
+/* Adjust the image size while maintaining responsiveness */
+.img-box img {
+  width: 120%; /* Increase the size but keep it responsive */
+  max-width: none; /* Remove max-width limitation */
+  animation: moveImage 5s infinite alternate; /* Retain movement effect */
+}
+
+/* Smooth animation effect */
+@keyframes moveImage {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{{ url_for('static', filename='images/hero-bg.png') }}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats 
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Multi-Class <br>
+                      News Classification
+                    </h1>
+                    <p>
+                      
+                    </p>
+                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{{ url_for('static', filename='images/slide-img.png') }}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Multi-Class <br>
+                      News Classification
+                    </h1>
+                    <p>
+                      </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{{ url_for('static', filename='images/slide-img.png') }}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+<!--Service section-->
+<section class="news-classifier-section">
+  <div class="news-classifier-container">
+    <div class="heading_container heading_center">
+      <h2>
+        Classify <span>App</span>
+      </h2>
+      <p>
+        
+      </p>
+    </div>
+      <div class="news-classifier-box">
+          <h3 class="classifier-title">News Article</h3>
+          <form id="news-form">
+              <div class="form-group">
+                  <textarea id="news-article" class="classifier-textarea" placeholder="" required></textarea>
+                  <button type="submit" class="classifier-btn">Classify <i data-feather="search"></i></button>
+              </div>
+          </form>
+          <div class="classified-output">
+              <h3 class="classifier-title">Classified Output</h3>
+              <div id="result" class="classifier-result">
+                  <!-- Classified output will be displayed here -->
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<style>
+/* Spacing between the form and list topics */
+#list-topics {
+  margin-top: 30px;
+    /* Heading Container Styling */
+  .heading_container {
+    margin-bottom: 20px; /* Add spacing below the heading */
+  }
+  
+  /* News Classifier Container */
+  .news-classifier-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* Reduced width for compact design */
+    margin-top: 20px; /* Add spacing above the container */
+  }
+}
+</style>
+
+<style>
+/* News Classifier Section */
+.news-classifier-section {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  min-height: 50vh; /* Reduced height */
+  background: rgba(255, 255, 255, 0.3);
+  padding: 30px;
+}
+
+/* Transparent White Box Container */
+
+.heading_container {
+  margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+/* News Classifier Section */
+.news-classifier-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  background: #fff; /* Light background color */
+  padding: 30px;
+}
+
+/* Heading Container Styling */
+.heading_container {
+  margin-bottom: 20px;
+}
+
+/* News Classifier Container */
+.news-classifier-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px; /* Increased width for better layout */
+  margin-top: 20px;
+}
+
+/* Inner Box Styling */
+.news-classifier-box {
+  position: relative;
+  background: #05053d; /* Plain navy blue background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Neon glow */
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  color: #fff; /* White text color */
+}
+
+/* Title Styling */
+.classifier-title {
+  font-size: 24px; /* Larger font size */
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ffffff; /* Neon color */
+}
+
+/* Textarea Styling */
+.classifier-textarea, .classifier-result {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px; /* Larger font size */
+  color: #000; /* Black text color */
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #03e9f4; /* Neon border */
+  outline: none;
+  background: rgba(255, 255, 255 ); /* Slightly white background */
+  transition: all 0.3s ease; 
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Neon glow */
+}
+
+/* Focus Effect on Textarea */
+.classifier-textarea:focus, .classifier-result:focus {
+  border-color: #03e9f4;
+  outline: none;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Neon glow */
+}
+
+/* Button Styling */
+.classifier-btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Button Hover Effect */
+.classifier-btn:hover {
+  background: #03e9f4;
+  color: #fff;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+}
+
+/* Classified Output Box */
+.classifier-result {
+  background: rgba(255, 255, 255); /* Slightly white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); /* Neon glow */
+  min-height: 60px; /* Increased height */
+  margin-top: 20px;
+  color: #000; /* Black text color */
+  border: 1px solid #03e9f4; /* Neon border */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px); /* Glassmorphism effect for Safari */
+}
+</style>
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2>
+          Description <span>of the App</span>
+        </h2>
+        <p>
+          
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/about-img.png') }}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              Multi-Class News Classification App
+            </h3>
+            <p>
+The Multi-Class News Classifier App is a machine learning-powered application designed to automatically categorize news articles into predefined categories. It uses Natural Language Processing (NLP) techniques to analyze the content of news articles and classify them into categories such as Politics, Technology, Sports, Business, and others.
+            </p>
+                      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Categories <span>in the App</span>
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/w1.png') }}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Technology
+            </h5>
+            <p>
+              Stay informed about the latest advancements in AI, gadgets, software, and emerging technologies. Get insights into industry trends, tech company updates, and innovations shaping the future.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/w2.png') }}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Sports
+            </h5>
+            <p>
+              Get real-time updates on matches, tournaments, player performances, and breaking sports news. Stay connected with the latest in football, cricket, basketball, and more from around the world.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/w3.png') }}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Business
+            </h5>
+            <p>
+              Explore in-depth market trends, stock updates, startup innovations, and global economic developments. Stay ahead with financial insights, corporate news, and expert business analysis.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/w4.png') }}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Politics
+            </h5>
+            <p>
+              Follow the latest political events, government policies, elections, and global affairs. Stay updated with insights into national and international politics, diplomatic relations, and policy changes.
+            </p>
+          </div>
+        </div>
+      </div>
+          </div>
+  </section>
+
+  <!-- end why section -->
+
+   <section class="team_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container heading_center">
+        <h2 class="">
+          Our <span> Team</span>
+        </h2>
+      </div>
+  
+      <div class="team_container">
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="{{ url_for('static', filename='images/team-1.jpg') }}" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Charitha Reddy
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="{{ url_for('static', filename='images/team-2.jpg') }}" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Satya Raju
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="{{ url_for('static', filename='images/team-3.jpg') }}" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Vamshi
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="{{ url_for('static', filename='images/team-4.jpg') }}" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Jayavardhan
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <!--<img src="{{ url_for('static', filename='images/team-4.jpg') }}" class="img1" alt="">-->
+          </div>
+          <div class="detail-box">
+            <h5>
+              Chandrahas
+            </h5>
+            <p>
+            </p>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>      
+         
+    <script>
+      document.getElementById('news-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+          const article = document.getElementById('news-article').value;
+          
+          fetch('/classify', {
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({ article: article }),
+          })
+          .then(response => response.json())
+          .then(data => {
+              document.getElementById('result').innerHTML = `<p>The news belongs to <strong>${data.category}</strong> category!</p>`;
+          })
+          .catch(error => console.error('Error:', error));
+      });
+  </script>
+  <!-- end team section -->
+</body>
+</html>
